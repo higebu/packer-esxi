@@ -19,10 +19,10 @@
   ],
   "builders": [
     {
-      "type": "vmware",
+      "type": "vmware-iso",
       "headless": true,
-      "vm_name": "esxi55",
-      "vmdk_name": "esxi55",
+      "vm_name": "esxi60",
+      "vmdk_name": "esxi60",
       "disk_type_id": "0",
       "boot_command": [
         "O<wait>",
@@ -32,10 +32,10 @@
       "disk_size": 20140,
       "guest_os_type": "vmkernel5",
       "http_directory": "http",
-      "iso_checksum": "9aaa9e0daa424a7021c7dc13db7b9409",
+      "iso_checksum": "106b43097ccd1896fbb389b5c41d1526",
       "iso_checksum_type": "md5",
       "iso_urls": [
-        "./VMware-VMvisor-Installer-5.5.0-1331820.x86_64.iso"
+        "./VMware-VMvisor-Installer-6.0.0.update01-3029758.x86_64.iso"
       ],
       "ssh_username": "root",
       "ssh_password": "vagrant",
@@ -54,7 +54,8 @@
   "post-processors": [
     {
       "type": "vagrant",
-      "output": "{{.Provider}}_esxi55.box"
+      "include": "metadata.json",
+      "output": "{{.Provider}}_esxi60.box"
     }
   ]
 }

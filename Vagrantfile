@@ -7,10 +7,10 @@ end
 Vagrant.configure("2") do |config|
   config.ssh.default.username = "root"
   config.ssh.shell = "sh"
+  config.ssh.insert_key = false
 
   config.vm.hostname = "vagrantbox"
-  config.vm.box = "vmware_esxi55"
-  config.vm.box_url = "./vmware_esxi55.box"
+  config.vm.box = "esxi"
   config.vm.synced_folder ".", "/vagrant", nfs: true
 
   [:vmware_fusion, :vmware_workstation].each do |name|
