@@ -1,4 +1,11 @@
-Vagrant.require_plugin "vagrant-esxi"
+REQUIRED_PLUGINS = %w(vagrant-esxi)
+exit unless REQUIRED_PLUGINS.all? do |plugin|
+  Vagrant.has_plugin?(plugin) || (
+    puts "The #{plugin} plugin is required. Please install it with:"
+    puts "$ vagrant plugin install #{plugin}"
+    false
+  )
+end
 
 File.open("version.txt", 'w') do |f|
   f.write(Vagrant::VERSION)
